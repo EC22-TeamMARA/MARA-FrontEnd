@@ -8,7 +8,7 @@ import SignUp from './commons/components/sign_up/sign_up';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <SignUp />
+    <App />
   </React.StrictMode>
 );
 
