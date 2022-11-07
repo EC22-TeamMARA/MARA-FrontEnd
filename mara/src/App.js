@@ -4,6 +4,7 @@ import SignUp from "./commons/components/sign_up/sign_up"
 import Menu from "./commons/components/menu"
 import Main from "./commons/components/main"
 import SelectMe from "./commons/components/sign_up/select_me"
+import SelectTag from "./commons/components/sign_up/select_tag"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Main/>}></Route>
           <Route path="/sign_up" element={<SignUp/>}></Route>
           <Route path="/sign_up/page2" element={<SelectMe/>}></Route>
+          <Route path="/sign_up/page3" element={<SelectTag/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>
