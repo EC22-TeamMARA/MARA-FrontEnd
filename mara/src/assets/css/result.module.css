@@ -16,13 +16,3 @@ img{
     border: 1px solid;
     border-color: #ECECEC;
 }
-
-button{
-    background-color: black;
-    color: white;
-    width: 20%;
-    height: 8%;
-    border-radius: 40px;
-    align-self: center;
-    margin-top: 10%;
-}

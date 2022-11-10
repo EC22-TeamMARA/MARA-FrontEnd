@@ -1,4 +1,4 @@
-#me{
+#tag{
     width: 80vw;
     height: 80vh;
     display: flex;
@@ -8,42 +8,28 @@
     justify-content:space-evenly;
 }
 
-image{
+tags{
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 70%;
+    justify-items: center;
+    width: 50%;
     overflow: auto;
+    align-items: center;
 }
 
-img{
+tag{
     display: flex;
-    height: 12vw;
-    width: 12vw;
-    border-radius: 30px;
-    border: 1px solid;
+    border: solid 3px;
     border-color: #ECECEC;
-}
-
-button{
-    background-color: black;
-    color: white;
-    width: 20%;
-    height: 8%;
-    border-radius: 40px;
-    align-self: center;
-    margin-top: 10%;
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 30px;
 }
 
 #square{
     background-color: black;
-    width: 49%;
-    height: 100%;
-    border-radius: 40px;
-}
-
-#square_empty{
-    background-color: #ECECEC;
     width: 49%;
     height: 100%;
     border-radius: 40px;
