@@ -1,8 +1,30 @@
 import list from '../../data/tag'
 import styles from '../../../assets/css/select_tag.module.css'
 import {Link} from "react-router-dom"
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 
-function select_me(){
+function Select_tag(){
+    const [jdata, setJdata]=useState([]);
+
+    useEffect(()=>{
+
+        const url="http://54.172.178.96:8010/user/signup/data/tags";
+        //const crossOriginIsolated = {withCredentials: true};
+
+        axios
+        .get(url)
+        .then((res)=>{
+            setJdata(res.data.data);
+            console.log(jdata);
+            //console.log(res.data.data.dataList);
+        })
+        .catch((Error)=>{
+            console.log(Error);
+        });
+        
+    },[]);
+
     return(
         <div id={styles.tag}>
             <div id={styles.level}>
@@ -25,4 +47,4 @@ function select_me(){
     );
 }
 
-export default select_me;
+export default Select_tag;

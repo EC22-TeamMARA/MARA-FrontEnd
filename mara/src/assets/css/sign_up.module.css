@@ -9,27 +9,6 @@
 }
 
 
-input{
-    border-radius: 10px;
-    height: 10%;
-    width: 100%;
-    border-style: solid;
-    border-width:1px;
-    padding-left: 20px;
-    font-size: 20pt;
-}
-
-
-button{
-    background-color: black;
-    color: white;
-    width: 20vw;
-    height: 8%;
-    border-radius: 40px;
-    align-self: center;
-    margin-top: 10%;
-}
-
 imfor{
     align-self: flex-start;
     margin-left: 5px;
