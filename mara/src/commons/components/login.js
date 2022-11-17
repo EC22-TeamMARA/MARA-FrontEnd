@@ -2,25 +2,47 @@ import styles from "../../assets/css/login.module.css";
 import axios from 'axios';
 import React, {useState} from 'react';
 import {AiOutlineClose } from 'react-icons/ai';
+import {Link} from "react-router-dom";
 
 
 function Login({open, close}){
 
-    const [jdata, setJdata]=useState([]);
+    const [login,setLogin]=useState({
+        identifyId:"",
+        password: "",
+    })
+
+    const onChangeId=(e)=>{
+        setLogin({
+            ...login,
+            identifyId: e.target.value,
+        })
+        //console.log(login);
+    }
+
+    const onChangePwd=(e)=>{
+        setLogin({
+            ...login,
+            password: e.target.value,
+        })
+        //console.log(login);
+    }
 
     const onClick=async()=>{
 
-        const url="http://54.172.178.96:8010/user/signup/data/tags";
+        const url="http://54.172.178.96:8010/user/login";
         //const crossOriginIsolated = {withCredentials: true};
 
         axios
-        .get(url)
+        .post(url,login)
         .then((res)=>{
-            setJdata(res);
             console.log(res);
+            alert("성공했습니다!!");
+            window.location.replace('/main');
         })
         .catch((Error)=>{
             console.log(Error);
+            alert("아이디 또는 비밀번호가 틀렸습니다.");
         });
         
     };
@@ -35,8 +57,8 @@ function Login({open, close}){
                     </close>
                     <contents>
                         <h1>LOGIN</h1>
-                        <input placeholder="id"/>
-                        <input placeholder="passwd"/>
+                        <input placeholder="id" onChange={onChangeId}/>
+                        <input placeholder="passwd" onChange={onChangePwd}/>
                         <button onClick={onClick}>login</button>
                     </contents>
                     

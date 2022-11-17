@@ -12,7 +12,6 @@ function Select_me(){
     }
 
 
-
     return(
         <div id={styles.me}>
             <div id={styles.level}>
@@ -30,7 +29,7 @@ function Select_me(){
                 );
             })}
             </image>
-            <button><Link style={{textDecoration: 'none', color: 'white', fontSize: '20px'}} to="/sign_up/page3">다음 → </Link></button><br/>
+            <button><Link style={{textDecoration: 'n+one', color: 'white', fontSize: '20px'}} to="/sign_up/page3">다음 → </Link></button><br/>
         </div>
     );
 }
