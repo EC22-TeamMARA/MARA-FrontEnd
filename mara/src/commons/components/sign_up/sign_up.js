@@ -6,14 +6,8 @@ import React, {useState} from 'react';
 
 
 function SignUp(){
-    const [identifyId,setId]=useState({
-        id:"",
-        password: "",
-    })
 
-    const onChangeId=(e)=>{
-        setId({})
-    }
+
     return(
         <div id={styles.sign_up}>
             <imfor>ID</imfor> <input id="id" placeholder="아이디를 입력하세요."/><br/>

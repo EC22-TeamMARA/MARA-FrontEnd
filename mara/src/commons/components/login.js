@@ -2,7 +2,6 @@ import styles from "../../assets/css/login.module.css";
 import axios from 'axios';
 import React, {useState} from 'react';
 import {AiOutlineClose } from 'react-icons/ai';
-import {Link} from "react-router-dom";
 
 
 function Login({open, close}){

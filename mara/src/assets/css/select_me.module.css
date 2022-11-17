@@ -25,9 +25,14 @@ image{
     border-color: #ECECEC;
 }
 
-.me_select{
+.me_sel{
+    display: flex;
+    height: 12vw;
+    width: 12vw;
+    padding: 5px;
+    border-radius: 30px;
+    border: 5px solid;
     border-color: black;
-    border: 2px;
 }
 
 #square{
