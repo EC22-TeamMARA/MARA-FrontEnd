@@ -25,6 +25,11 @@ image{
     border-color: #ECECEC;
 }
 
+.me_select{
+    border-color: black;
+    border: 2px;
+}
+
 #square{
     background-color: black;
     width: 49%;

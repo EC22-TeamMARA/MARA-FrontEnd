@@ -1,0 +1,45 @@
+#modalOpen{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    height: 80vh;
+    width: 40vw;
+    background-color: white;
+    border-radius: 40px;
+    align-items: center;
+}
+/*
+header{
+    height: 30%;
+    flex-direction: row;
+    justify-content:space-evenly;
+
+}*/
+
+contents{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: center;
+    height: 80%;
+    width: 80%;
+}
+
+close{
+    align-self: flex-end;
+    padding: 10px;
+
+}

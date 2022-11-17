@@ -1,8 +1,18 @@
 import list from '../../data/caktail'
 import styles from '../../../assets/css/select_me.module.css'
+import React, { useState } from 'react';
 import {Link} from "react-router-dom"
 
-function select_me(){
+function Select_me(){
+
+    const [cock, setCock]=useState({});
+
+    const select=(e)=>{
+        console.log(e);
+    }
+
+
+
     return(
         <div id={styles.me}>
             <div id={styles.level}>
@@ -16,7 +26,7 @@ function select_me(){
                 list.map((Item)=>{
                 var {id, img}=Item;
                 return(
-                    <img className={styles.me} src={img} alt={id}/>
+                    <img className={styles.me} src={img} alt={id} onClick={select}/>
                 );
             })}
             </image>
@@ -25,4 +35,4 @@ function select_me(){
     );
 }
 
-export default select_me;
+export default Select_me;

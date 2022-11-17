@@ -1,4 +1,5 @@
 import styles from  "../../../assets/css/sign_up.module.css"
+import axios from 'axios';
 import {Link} from "react-router-dom"
 
 
