@@ -56,3 +56,15 @@ image{
     flex-direction: row;
     justify-content: space-between;
 }
+
+.hidden_btn{
+    background-color: rgb(188, 188, 188);
+    color: white;
+    width: 20vw;
+    height: 8%;
+    border-color: rgb(188, 188, 188);
+    border-radius: 40px;
+    align-self: center;
+    margin-top: 10%;
+    font-size: '20px'
+}

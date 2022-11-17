@@ -6,6 +6,7 @@ import axios from 'axios';
 
 function Select_tag(){
     const [tags, setTags]=useState([]);
+    const [tags_sel, setTags_sel]=useState([]);
     const [num, setNum]=useState(0);
 
     useEffect(()=>{
@@ -18,12 +19,6 @@ function Select_tag(){
         .then((res)=>{
             setTags(res.data.data.dataList);
             //console.log(res.data.data.dataList);
-            tags.map((item)=>{
-                setNum({
-                    ...tags,
-                    on: false
-                })
-            })
         })
         .catch((Error)=>{
             console.log(Error);
@@ -32,8 +27,18 @@ function Select_tag(){
     },[]);
 
     const onClick=(e)=>{
-        console.log(tags);
-        setNum(num+1);
+        if(e.target.className===""){
+            e.target.className=styles.tag_sel;
+            setTags_sel(sel=>[...sel, e.target.id])
+            setNum(num+1);
+        }
+        else{
+            e.target.className="";
+            setTags_sel(tags_sel.filter(item=>item!==e.target.id));
+            setNum(num-1);
+        }
+        //console.log(num);
+        //console.log(tags_sel);
     }
 
     return(
@@ -50,14 +55,14 @@ function Select_tag(){
                 var {tagId, tagContent}=Item;
                 console.log(tagId, tagContent);
                 return(
-                    <tag id={tagId} onClick={onClick}>{tagContent}</tag>
+                    <tag id={tagId} className="" onClick={onClick}>{tagContent}</tag>
                 );
             })}
             </tags>
             {
                 num>0?
                 <button><Link style={{textDecoration: 'none', color: 'white', fontSize: '20px'}} to="/sign_up/page4">다음 → </Link></button>
-                :<button className=''>다음→</button>
+                :<button className={styles.hidden_btn}>다음→</button>
             }
             
         </div>

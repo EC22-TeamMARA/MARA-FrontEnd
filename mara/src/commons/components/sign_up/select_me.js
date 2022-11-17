@@ -9,7 +9,7 @@ function Select_me(){
 
     const [cock, setCock]=useState([]);
     const [cock_sel, setCock_sel]=useState([]);
-
+    const [num, setNum]=useState(0);
     
 
     useEffect(()=>{
@@ -21,7 +21,7 @@ function Select_me(){
         .get(url)
         .then((res)=>{
             setCock(res.data.data.dataList);
-            console.log(res.data.data.dataList);
+            //console.log(res.data.data.dataList);
         })
         .catch((Error)=>{
             console.log(Error);
@@ -30,10 +30,16 @@ function Select_me(){
     },[]);
 
     const select=(e)=>{
-        setCock_sel(sel=>[...sel, e.target.id])
-        console.log(e.target);
-        console.log(cock_sel);
-        e.target.className=styles.me_sel
+        if(e.target.className===styles.me){
+            e.target.className=styles.me_sel;
+            setCock_sel(sel=>[...sel, e.target.id])
+            setNum(num+1);
+        }
+        else{
+            e.target.className=styles.me;
+            setCock_sel(cock_sel.filter(item=>item!==e.target.id));
+            setNum(num-1);
+        }
     }
 
     return(
@@ -47,7 +53,6 @@ function Select_me(){
             <h1>좋아하는 칵테일을 3개 선택 해주세요</h1>
             <image>
             {
-            
                 cock.map((Item)=>{
                 var {cocktailId, cocktailImgUrl, cocktailName}=Item;
                 //console.log(cocktailName);
@@ -56,7 +61,11 @@ function Select_me(){
                 );
             })}
             </image>
-            <button><Link style={{textDecoration: 'n+one', color: 'white', fontSize: '20px'}} to="/sign_up/page3">다음 → </Link></button><br/>
+            {num>0?
+            <button><Link style={{textDecoration: 'none', color: 'white', fontSize: '20px'}} to="/sign_up/page3">다음 → </Link></button>
+            :<button className={styles.hidden_btn}>다음→</button>
+            }
+
         </div>
     );
 }
