@@ -84,7 +84,7 @@ function Select_tag(){
                 <div id={styles.square}></div>
             </div>
             
-            <h1>추천받고 싶은 키워드를 3개 선택 해주세요</h1>
+            <h1>추천받고 싶은 키워드를 1개 이상 선택 해주세요</h1>
             <tags>
             {                
                 tags.map((Item)=>{

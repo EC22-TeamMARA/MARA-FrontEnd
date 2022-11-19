@@ -80,7 +80,7 @@ function Select_me(){
                 <div id={styles.square_empty}></div>
             </div>
             
-            <h1>좋아하는 칵테일을 3개 선택 해주세요</h1>
+            <h1>좋아하는 칵테일을 1개 이상 선택 해주세요</h1>
             <image>
             {
                 cock.map((Item)=>{
