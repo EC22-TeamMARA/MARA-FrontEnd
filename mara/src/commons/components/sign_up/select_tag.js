@@ -62,7 +62,6 @@ function Select_tag(){
                 cocktailImgUrl: res.data.data.cocktailImgUrl,
                 cocktailName: res.data.data.cocktailName,
             })
-            alert("성공했습니다!!");
             window.location.replace('/sign_up/page4');
         })
         .catch((Error)=>{

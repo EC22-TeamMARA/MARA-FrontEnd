@@ -13,6 +13,7 @@ function Select_me(){
     const [cock, setCock]=useState([]);
     const [cock_sel, setCock_sel]=useState({id:"",cocktailIdSelectedList:[]});
     const [num, setNum]=useState(0);
+    const [checkSel, setcheck]=useState(0);
     const [imfor,setImfor]=useRecoilState(user);
 
 
@@ -32,9 +33,9 @@ function Select_me(){
         
     },[]);
 
-    const select=(e)=>{
-        if(e.target.className===styles.me){
-            e.target.className=styles.me_sel;
+    const select_img=(e)=>{
+        if(e.target.parentNode.className===styles.cock){
+            e.target.parentNode.className=styles.me_sel;
             setCock_sel({
                 id: imfor.identifyId,
                 cocktailIdSelectedList: [...cock_sel.cocktailIdSelectedList, Number(e.target.id)]
@@ -42,7 +43,7 @@ function Select_me(){
             setNum(num+1);
         }
         else{
-            e.target.className=styles.me;
+            e.target.parentNode.className=styles.cock;
             setCock_sel({
                 id: imfor.identifyId,
                 cocktailIdSelectedList: cock_sel.cocktailIdSelectedList.filter(item=>item!==Number(e.target.id))});
@@ -56,7 +57,7 @@ function Select_me(){
         axios
         .post(url,cock_sel)
         .then((res)=>{
-            alert("성공했습니다!!");
+            //alert("성공했습니다!!");
             
             window.location.replace('/sign_up/page3');
         })
@@ -64,6 +65,18 @@ function Select_me(){
             console.log(Error);
             alert("다시 시도해주세요");
         });
+    }
+
+    const onEnter=(e)=>{
+        console.log(e.target.parentNode.children[1]);
+        setcheck(e.target.className);
+        e.target.className=styles.me_hover;
+        e.target.parentNode.children[1].className=styles.name;
+    }
+
+    const onLeave=(e)=>{
+        e.target.className=checkSel;
+        e.target.parentNode.children[1].className=styles.hidden;
     }
 
     return(
@@ -81,7 +94,11 @@ function Select_me(){
                 var {cocktailId, cocktailImgUrl, cocktailName}=Item;
 
                 return(
-                    <img className={styles.me} id={cocktailId} src={cocktailImgUrl} alt={cocktailName} onClick={select}/>
+                    <div className={styles.cock} >
+                        <img className={styles.me} onMouseEnter={onEnter} onMouseLeave={onLeave} onClick={select_img} id={cocktailId} src={cocktailImgUrl} alt={cocktailName}/>
+                        <div className={styles.hidden}>{cocktailName}</div>
+                    </div>
+                    
                 );
             })}
             </image>
