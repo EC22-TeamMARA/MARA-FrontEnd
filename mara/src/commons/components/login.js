@@ -16,7 +16,6 @@ function Login({open, close}){
             ...login,
             identifyId: e.target.value,
         })
-        //console.log(login);
     }
 
     const onChangePwd=(e)=>{
@@ -24,7 +23,6 @@ function Login({open, close}){
             ...login,
             password: e.target.value,
         })
-        //console.log(login);
     }
 
     const onClick=async()=>{
@@ -35,7 +33,6 @@ function Login({open, close}){
         axios
         .post(url,login)
         .then((res)=>{
-            console.log(res);
             alert("성공했습니다!!");
             window.location.replace('/main');
         })

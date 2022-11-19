@@ -23,7 +23,6 @@ function Select_tag(){
         .get(url)
         .then((res)=>{
             setTags(res.data.data.dataList);
-            //console.log(res.data.data.dataList);
         })
         .catch((Error)=>{
             console.log(Error);
@@ -47,19 +46,15 @@ function Select_tag(){
                 tagIdSelectedList: tags_sel.tagIdSelectedList.filter(item=>item!==Number(e.target.id))});
             setNum(num-1);
         }
-        //console.log(num);
-        //console.log(tags_sel);
     }
 
     const onSend=async()=>{
         const url="http://54.172.178.96:8010/user/rs/tags";
         //const crossOriginIsolated = {withCredentials: true};
-        console.log(tags_sel);
         alert("결과를 도출하는 중입니다. 잠시만 기다려주세요.");
         axios
         .post(url,tags_sel)
         .then((res)=>{
-            console.log(res);
             
             setImfor({
                 ...imfor,
@@ -68,7 +63,6 @@ function Select_tag(){
                 cocktailName: res.data.data.cocktailName,
             })
             alert("성공했습니다!!");
-            console.log(imfor);
             window.location.replace('/sign_up/page4');
         })
         .catch((Error)=>{
@@ -89,7 +83,6 @@ function Select_tag(){
             {                
                 tags.map((Item)=>{
                 var {tagId, tagContent}=Item;
-                console.log(tagId, tagContent);
                 return(
                     <tag id={tagId} className="" onClick={onClick}>{tagContent}</tag>
                 );
