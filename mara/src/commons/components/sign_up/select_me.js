@@ -11,11 +11,11 @@ import {user} from "../modules";
 function Select_me(){
 
     const [cock, setCock]=useState([]);
-    const [cock_sel, setCock_sel]=useState([]);
+    const [cock_sel, setCock_sel]=useState({id:"",cocktailIdSelectedList:[]});
     const [num, setNum]=useState(0);
     const [imfor,setImfor]=useRecoilState(user);
 
-    console.log(imfor);
+    //console.log(imfor);
 
     useEffect(()=>{
 
@@ -37,14 +37,39 @@ function Select_me(){
     const select=(e)=>{
         if(e.target.className===styles.me){
             e.target.className=styles.me_sel;
-            setCock_sel(sel=>[...sel, e.target.id])
+            console.log(user);
+            setCock_sel({
+                id: imfor.identifyId,
+                cocktailIdSelectedList: [...cock_sel.cocktailIdSelectedList, e.target.id]
+            })
             setNum(num+1);
+            console.log(cock_sel);
         }
         else{
             e.target.className=styles.me;
-            setCock_sel(cock_sel.filter(item=>item!==e.target.id));
+            setCock_sel({
+                id: imfor.identifyId,
+                cocktailIdSelectedList: cock_sel.cocktailIdSelectedList.filter(item=>item!==e.target.id)});
             setNum(num-1);
         }
+    }
+
+    const onClick=async()=>{
+        const url="http://54.172.178.96:8010/user/rs/cocktails";
+        //const crossOriginIsolated = {withCredentials: true};
+        console.log(cock_sel);
+        axios
+        .post(url,{id:1,cocktailIdSelectedList:[1,2]})
+        .then((res)=>{
+            console.log(res);
+            alert("성공했습니다!!");
+            
+            window.location.replace('/sign_up/page3');
+        })
+        .catch((Error)=>{
+            console.log(Error);
+            alert("다시 시도해주세요");
+        });
     }
 
     return(
@@ -67,7 +92,7 @@ function Select_me(){
             })}
             </image>
             {num>0?
-            <button><Link style={{textDecoration: 'none', color: 'white', fontSize: '20px'}} to="/sign_up/page3">다음 → </Link></button>
+            <button onClick={onClick}><Link style={{textDecoration: 'none', color: 'white', fontSize: '20px'}} to="">다음 → </Link></button>
             :<button className={styles.hidden_btn}>다음→</button>
             }
 
