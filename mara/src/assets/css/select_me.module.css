@@ -26,7 +26,6 @@ image{
     height: 12vw;
     width: 12vw;
     border-radius: 30px;
-    border: 1px solid;
     border-color: #ECECEC;
 }
 
@@ -99,7 +98,7 @@ image{
     background-color: rgb(188, 188, 188);
     color: white;
     width: 20vw;
-    height: 8%;
+    height: 4vw;
     border-color: rgb(188, 188, 188);
     border-radius: 40px;
     align-self: center;
@@ -107,3 +106,6 @@ image{
     font-size: '20px'
 }
 
+.font{
+    font-size: 20px;
+}

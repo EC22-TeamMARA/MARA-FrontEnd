@@ -6,18 +6,33 @@ import {Link} from "react-router-dom"
 
 function Start(){
     const [modal, setModal]=useState(false);
+    const [checkSel, setcheck]=useState(0);
+
     
     const onClick=(item, e)=>{
         setModal(!modal);
     }
 
+    const onEnter=(e)=>{
+        console.log(e.target.parentNode.children);
+        e.target.parentNode.children[2].className=styles.img_hover;
+        e.target.parentNode.children[1].className=styles.ment_hover;
+    }
+
+    const onLeave=(e)=>{
+        e.target.parentNode.children[2].className=styles.img_start;
+        e.target.parentNode.children[1].className=styles.ment_hidden;
+    }
+
     return(
-        <div className={styles.img_start}>
+        <div>
             <div class={styles.login} onClick={onClick}>로그인</div>
-            <div class={styles.ment}>정말 향기롭고 조화로운 칵테일을 원하신다면 어쩌구어쩌구 이 사이트는 마라탕팀이 만든겁니다!! 이 사이트를 통해 당신은 자신이 원하고 못먹어본 자신의 취향 껏 칵테일을 추천받고 맛보고 즐길 수 있으며, 새로운 칵테일에 실패없이 성공하게 될 것입니다 굿~</div>
+            <div class={styles.ment_hidden}>자신에게 어울리는 칵테일을 찾고싶으신가요?<br/>
+혹은 분위기에 어울리는 칵테일을 찾고싶으신가요?<br/>
+???에서 실패 없는 칵테일을 만나보세요</div>
             {modal?<LoginModal open={modal} close={onClick}/>:null}
-            <img className={styles.img_start} src="/start4.jpg" alt="drink_cock"/>
-            <button className={styles.btn}><Link style={{textDecoration: 'none', color: 'white', fontSize: '20px'}} to="/sign_up">시작하기 → </Link></button>
+            <img className={styles.img_start} src="/start5.png" alt="drink_cock"/>
+            <button className={styles.btn} onMouseEnter={onEnter} onMouseLeave={onLeave}><Link style={{textDecoration: 'none', color: 'white', fontSize: '20px'}} to="/sign_up">시작하기 → </Link></button>
         </div>
     );
 }

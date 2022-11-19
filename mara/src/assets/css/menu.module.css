@@ -16,6 +16,7 @@
     flex-direction: row;
     justify-content: space-between;
     width: 90%;
+    align-items: center;
 }
 
 .cate{
@@ -23,6 +24,7 @@
     flex-direction: row;
     width: 50%;
     justify-content: space-around;
+    align-items: center;
 }
 
 .font{
@@ -31,7 +33,13 @@
     cursor: pointer;
 }
 
-
+.logo{
+    width: 8vh;
+    height: 8vh;
+    border: 0px;
+    position: absolute;
+    left: 10px;
+}
 
 body{
     margin: 0px;

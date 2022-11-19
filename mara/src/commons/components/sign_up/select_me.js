@@ -104,7 +104,7 @@ function Select_me(){
             </image>
             {num>0?
             <button onClick={onClick}><Link style={{textDecoration: 'none', color: 'white', fontSize: '20px'}} to="">다음 → </Link></button>
-            :<button className={styles.hidden_btn}>다음→</button>
+            :<button className={styles.hidden_btn}><div className={styles.font} >다음→</div></button>
             }
 
         </div>

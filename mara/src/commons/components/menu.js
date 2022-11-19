@@ -11,8 +11,9 @@ function Menu(){
         <div className={styles.menu}>
             <div className={styles.bar}>
                 <div className={styles.cate}>
+                    <img className={styles.logo} src="/icon.png" alt="logo"/>
                     <div className={styles.font}>Cocktail</div>
-                    <div className={styles.font}>Receip</div>
+                    <div className={styles.font}>Recipe</div>
                     <div className={styles.font}>Purchase</div>
                     <div className={styles.font}>Rank</div>
                 </div>
