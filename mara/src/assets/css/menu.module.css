@@ -1,0 +1,37 @@
+.menu{
+    display: flex;
+    position: absolute;
+    top:0;
+    left:0;
+    flex-direction: row;
+    width: 100vw;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(44, 44, 44);
+}
+
+.bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.cate{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: space-around;
+}
+
+.font{
+    font-size: 20px;
+    color: white;
+}
+
+
+
+body{
+    margin: 0px;
+}

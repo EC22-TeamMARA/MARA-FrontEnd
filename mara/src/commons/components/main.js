@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import styles from "../../assets/css/main.module.css";
-
+import Menu from "./menu";
 
 function Main(){
 
     return(
         <div>
-            이건 main 페이지<br/>
-            <img className={styles.img_main} src="/drink.png" alt="drink_cock"/>
-            공사중...
+            <Menu/>
+            <img className={styles.img_main} src="/cock1.png" alt="drink_cock"/>
+            <div className={styles.loading}><div className={styles.first}>●</div><div className={styles.other}>●</div><div className={styles.other}>●</div></div>
         </div>
     );
 }
