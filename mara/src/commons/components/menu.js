@@ -3,6 +3,10 @@ import styles from "../../assets/css/menu.module.css";
 
 
 function Menu(){
+    const onClick=(e)=>{
+        window.location.replace('/');
+    }
+
     return(
         <div className={styles.menu}>
             <div className={styles.bar}>
@@ -12,7 +16,7 @@ function Menu(){
                     <div className={styles.font}>Purchase</div>
                     <div className={styles.font}>Rank</div>
                 </div>
-                <div className={styles.font}>
+                <div className={styles.font} onClick={onClick}>
                     logout
                 </div>
             </div>
