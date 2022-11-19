@@ -33,7 +33,6 @@ function SignUp(){
             ...id,
             identifyId: e.target.value,
         })
-        //console.log(login);
     }
 
     const onChangeNick=(e)=>{
@@ -45,7 +44,6 @@ function SignUp(){
             ...nick,
             nickname: e.target.value,
         })
-        //console.log(login);
     }
 
     const onChangePwd=(e)=>{
@@ -53,27 +51,21 @@ function SignUp(){
             ...submit,
             password: e.target.value,
         })
-        //console.log(login);
     }
 
 
     const onClick_submit=async()=>{
 
         const url="http://54.172.178.96:8010/user/signup/submit";
-        //const crossOriginIsolated = {withCredentials: true};
-        console.log(submit);
-        
+        //const crossOriginIsolated = {withCredentials: true};        
 
         axios
         .post(url,submit)
         .then((res)=>{
-            console.log(res);
             alert("성공했습니다!!");
             submit.identifyId=res.data.data.id;
-            console.log(submit);
 
             setImfor(submit);
-            console.log(user_imfor);
 
             window.location.replace('/sign_up/page2');
         })
@@ -86,11 +78,10 @@ function SignUp(){
     const onClick_nickname=async()=>{
         const url="http://54.172.178.96:8010/user/signup/check/nickname";
         //const crossOriginIsolated = {withCredentials: true};
-        console.log(nick);
+
         axios
         .post(url,nick)
         .then((res)=>{
-            console.log(res);
             if(res.data.data.check===true){
                 alert("사용가능한 닉네임입니다.");
             }
@@ -108,11 +99,10 @@ function SignUp(){
 
         const url="http://54.172.178.96:8010/user/signup/check/id";
         //const crossOriginIsolated = {withCredentials: true};
-        console.log(id);
+
         axios
         .post(url,id)
         .then((res)=>{
-            console.log(res.data.data.check);
             if(res.data.data.check===true){
                 alert("사용가능한 아이디입니다.");
             }
