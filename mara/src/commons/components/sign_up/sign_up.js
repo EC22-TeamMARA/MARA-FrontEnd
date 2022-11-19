@@ -2,10 +2,13 @@ import styles from  "../../../assets/css/sign_up.module.css"
 import axios from 'axios';
 import {Link} from "react-router-dom"
 import React, {useState} from 'react';
+import {useRecoilState} from "recoil";
+import {user} from "../modules/atom";
 
 
 
 function SignUp(){
+    const [user_imfor,setImfor]=useRecoilState(user);
 
     const [submit,setSubmit]=useState({
         identifyId:"",
@@ -53,16 +56,21 @@ function SignUp(){
         //console.log(login);
     }
 
+
     const onClick_submit=async()=>{
 
         const url="http://54.172.178.96:8010/user/signup/submit";
         //const crossOriginIsolated = {withCredentials: true};
         console.log(submit);
+        setImfor(submit);
+
         axios
         .post(url,submit)
         .then((res)=>{
             console.log(res);
             alert("성공했습니다!!");
+            
+            
             window.location.replace('/sign_up/page2');
         })
         .catch((Error)=>{
@@ -72,7 +80,6 @@ function SignUp(){
         
     };
     const onClick_nickname=async()=>{
-
         const url="http://54.172.178.96:8010/user/signup/check/nickname";
         //const crossOriginIsolated = {withCredentials: true};
         console.log(nick);

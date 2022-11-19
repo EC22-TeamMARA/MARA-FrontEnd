@@ -3,6 +3,9 @@ import styles from '../../../assets/css/select_me.module.css'
 import React, { useState, useEffect } from 'react';
 import {Link} from "react-router-dom"
 import axios from 'axios';
+import {useRecoilState} from "recoil";
+import {user} from "../modules";
+
 
 
 function Select_me(){
@@ -10,13 +13,15 @@ function Select_me(){
     const [cock, setCock]=useState([]);
     const [cock_sel, setCock_sel]=useState([]);
     const [num, setNum]=useState(0);
-    
+    const [imfor,setImfor]=useRecoilState(user);
+
+    console.log(imfor);
 
     useEffect(()=>{
 
         const url="http://54.172.178.96:8010/user/signup/data/cocktails";
         //const crossOriginIsolated = {withCredentials: true};
-
+        
         axios
         .get(url)
         .then((res)=>{
