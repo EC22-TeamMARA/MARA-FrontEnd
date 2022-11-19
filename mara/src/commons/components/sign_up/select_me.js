@@ -15,7 +15,7 @@ function Select_me(){
     const [num, setNum]=useState(0);
     const [imfor,setImfor]=useRecoilState(user);
 
-    //console.log(imfor);
+    console.log(imfor);
 
     useEffect(()=>{
 
@@ -40,7 +40,7 @@ function Select_me(){
             console.log(user);
             setCock_sel({
                 id: imfor.identifyId,
-                cocktailIdSelectedList: [...cock_sel.cocktailIdSelectedList, e.target.id]
+                cocktailIdSelectedList: [...cock_sel.cocktailIdSelectedList, Number(e.target.id)]
             })
             setNum(num+1);
             console.log(cock_sel);
@@ -49,7 +49,7 @@ function Select_me(){
             e.target.className=styles.me;
             setCock_sel({
                 id: imfor.identifyId,
-                cocktailIdSelectedList: cock_sel.cocktailIdSelectedList.filter(item=>item!==e.target.id)});
+                cocktailIdSelectedList: cock_sel.cocktailIdSelectedList.filter(item=>item!==Number(e.target.id))});
             setNum(num-1);
         }
     }
@@ -59,7 +59,7 @@ function Select_me(){
         //const crossOriginIsolated = {withCredentials: true};
         console.log(cock_sel);
         axios
-        .post(url,{id:1,cocktailIdSelectedList:[1,2]})
+        .post(url,cock_sel)
         .then((res)=>{
             console.log(res);
             alert("성공했습니다!!");

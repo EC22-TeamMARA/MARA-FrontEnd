@@ -2,12 +2,17 @@ import list from '../../data/tag'
 import styles from '../../../assets/css/select_tag.module.css'
 import {Link} from "react-router-dom"
 import React, {useState, useEffect} from 'react';
+import {useRecoilState} from "recoil";
 import axios from 'axios';
+import {user} from "../modules";
+
 
 function Select_tag(){
     const [tags, setTags]=useState([]);
-    const [tags_sel, setTags_sel]=useState([]);
+    const [tags_sel, setTags_sel]=useState({id:"",tagIdSelectedList:[]});
     const [num, setNum]=useState(0);
+    const [imfor,setImfor]=useRecoilState(user);
+
 
     useEffect(()=>{
 
@@ -29,16 +34,47 @@ function Select_tag(){
     const onClick=(e)=>{
         if(e.target.className===""){
             e.target.className=styles.tag_sel;
-            setTags_sel(sel=>[...sel, e.target.id])
+            setTags_sel({
+                id: imfor.identifyId,
+                tagIdSelectedList: [...tags_sel.tagIdSelectedList, Number(e.target.id)]
+            });            
             setNum(num+1);
         }
         else{
             e.target.className="";
-            setTags_sel(tags_sel.filter(item=>item!==e.target.id));
+            setTags_sel({
+                id: imfor.identifyId,
+                tagIdSelectedList: tags_sel.tagIdSelectedList.filter(item=>item!==Number(e.target.id))});
             setNum(num-1);
         }
         //console.log(num);
         //console.log(tags_sel);
+    }
+
+    const onSend=async()=>{
+        const url="http://54.172.178.96:8010/user/rs/tags";
+        //const crossOriginIsolated = {withCredentials: true};
+        console.log(tags_sel);
+        alert("결과를 도출하는 중입니다. 잠시만 기다려주세요.");
+        axios
+        .post(url,tags_sel)
+        .then((res)=>{
+            console.log(res);
+            
+            setImfor({
+                ...imfor,
+                cocktailId: res.data.data.cocktailId,
+                cocktailImgUrl: res.data.data.cocktailImgUrl,
+                cocktailName: res.data.data.cocktailName,
+            })
+            alert("성공했습니다!!");
+            console.log(imfor);
+            window.location.replace('/sign_up/page4');
+        })
+        .catch((Error)=>{
+            console.log(Error);
+            alert("다시 시도해주세요");
+        });
     }
 
     return(
@@ -61,7 +97,7 @@ function Select_tag(){
             </tags>
             {
                 num>0?
-                <button><Link style={{textDecoration: 'none', color: 'white', fontSize: '20px'}} to="/sign_up/page4">다음 → </Link></button>
+                <button onClick={onSend}><Link style={{textDecoration: 'none', color: 'white', fontSize: '20px'}} to="">다음 → </Link></button>
                 :<button className={styles.hidden_btn}>다음→</button>
             }
             
