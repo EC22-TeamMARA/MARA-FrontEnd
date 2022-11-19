@@ -15,7 +15,6 @@ function Select_me(){
     const [num, setNum]=useState(0);
     const [imfor,setImfor]=useRecoilState(user);
 
-    console.log(imfor);
 
     useEffect(()=>{
 
@@ -26,7 +25,6 @@ function Select_me(){
         .get(url)
         .then((res)=>{
             setCock(res.data.data.dataList);
-            //console.log(res.data.data.dataList);
         })
         .catch((Error)=>{
             console.log(Error);
@@ -37,13 +35,11 @@ function Select_me(){
     const select=(e)=>{
         if(e.target.className===styles.me){
             e.target.className=styles.me_sel;
-            console.log(user);
             setCock_sel({
                 id: imfor.identifyId,
                 cocktailIdSelectedList: [...cock_sel.cocktailIdSelectedList, Number(e.target.id)]
             })
             setNum(num+1);
-            console.log(cock_sel);
         }
         else{
             e.target.className=styles.me;
@@ -57,11 +53,9 @@ function Select_me(){
     const onClick=async()=>{
         const url="http://54.172.178.96:8010/user/rs/cocktails";
         //const crossOriginIsolated = {withCredentials: true};
-        console.log(cock_sel);
         axios
         .post(url,cock_sel)
         .then((res)=>{
-            console.log(res);
             alert("성공했습니다!!");
             
             window.location.replace('/sign_up/page3');
@@ -85,7 +79,7 @@ function Select_me(){
             {
                 cock.map((Item)=>{
                 var {cocktailId, cocktailImgUrl, cocktailName}=Item;
-                //console.log(cocktailName);
+
                 return(
                     <img className={styles.me} id={cocktailId} src={cocktailImgUrl} alt={cocktailName} onClick={select}/>
                 );
