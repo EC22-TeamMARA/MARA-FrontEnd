@@ -62,15 +62,19 @@ function SignUp(){
         const url="http://54.172.178.96:8010/user/signup/submit";
         //const crossOriginIsolated = {withCredentials: true};
         console.log(submit);
-        setImfor(submit);
+        
 
         axios
         .post(url,submit)
         .then((res)=>{
             console.log(res);
             alert("성공했습니다!!");
-            
-            
+            submit.identifyId=res.data.data.id;
+            console.log(submit);
+
+            setImfor(submit);
+            console.log(user_imfor);
+
             window.location.replace('/sign_up/page2');
         })
         .catch((Error)=>{
