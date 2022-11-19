@@ -6,8 +6,6 @@ import Main from "./commons/components/main"
 import SelectMe from "./commons/components/sign_up/select_me"
 import SelectTag from "./commons/components/sign_up/select_tag"
 import Result from "./commons/components/sign_up/result"
-import Start from "./commons/components/start"
-
 
 function App() {
   return (
@@ -17,12 +15,11 @@ function App() {
         <Link to="/sign_up">회원가입</Link>
         <Link to="/login">로그인</Link>
         <Routes>
-          <Route path="/" element={<Start/>}></Route>
+          <Route path="/" element={<Main/>}></Route>
           <Route path="/sign_up" element={<SignUp/>}></Route>
           <Route path="/sign_up/page2" element={<SelectMe/>}></Route>
           <Route path="/sign_up/page3" element={<SelectTag/>}></Route>
           <Route path="/sign_up/page4" element={<Result/>}></Route>
-          <Route path="/main" element={<Main/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>
