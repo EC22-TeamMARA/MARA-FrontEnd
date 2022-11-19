@@ -1,0 +1,37 @@
+.img_main{
+    position: absolute;
+    top: 10%;
+    left:0%;
+    width: 100vw;
+    height: 90vh;
+    border-radius: 0%;
+    overflow: hidden;
+    object-fit: cover;
+    border: 0px;
+    filter: brightness(70%);
+    opacity: 0.9;
+    z-index: -1;
+}
+
+.loading{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    font-size: 30px;
+    display: flex;
+    justify-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.first{
+    opacity: 0.9;
+    color: white;
+}
+
+.other{
+    opacity: 0.6;
+    color: white;
+}
