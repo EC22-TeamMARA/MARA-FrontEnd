@@ -54,7 +54,7 @@ function Login({open, close}){
                     <contents>
                         <h1>LOGIN</h1>
                         <input placeholder="id" onChange={onChangeId}/>
-                        <input placeholder="passwd" onChange={onChangePwd}/>
+                        <input type="password" placeholder="passwd" onChange={onChangePwd}/>
                         <button onClick={onClick}>login</button>
                     </contents>
                     

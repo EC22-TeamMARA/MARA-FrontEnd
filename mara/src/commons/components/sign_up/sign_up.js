@@ -121,7 +121,7 @@ function SignUp(){
         <div id={styles.sign_up}>
             <imfor>ID</imfor> <div className={styles.checkbox}><input id="id" onChange={onChangeId} className={styles.sign} placeholder="아이디를 입력하세요."/><button onClick={onClick_id} className={styles.check}>중복 확인</button></div><br/>
             <imfor>Nickname</imfor> <div className={styles.checkbox}><input id="nick" onChange={onChangeNick} className={styles.sign} placeholder="닉네임을 입력하세요."/><button onClick={onClick_nickname} className={styles.check}>중복 확인</button></div><br/>
-            <imfor>Password</imfor> <input className={styles.password} id="pwd" onChange={onChangePwd} placeholder="비밀번호를 입력하세요."/><br/>
+            <imfor>Password</imfor> <input type="password" className={styles.password} id="pwd" onChange={onChangePwd} placeholder="비밀번호를 입력하세요."/><br/>
             <button onClick={onClick_submit} className={styles.sign_btn}><Link style={{textDecoration: 'none', color: 'white', fontSize: '20px'}} to="">다음 → </Link></button><br/>
         </div>
     );
